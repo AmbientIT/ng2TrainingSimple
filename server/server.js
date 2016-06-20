@@ -26,6 +26,6 @@ glob('./modules/**/index.js')
         }, {})
       )
     )
-    server.listen(3000, () => console.log('web-service listening on port 3000'))
+    server.listen(3001, () => console.log('web-service listening on port 3000'))
   })
   .catch(err => console.log(err));
