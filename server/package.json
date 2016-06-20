@@ -1,0 +1,16 @@
+{
+  "name": "mock-server",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "fs-promise": "^0.5.0",
+    "glob-promise": "^1.0.6",
+    "json-server": "^0.8.14",
+    "jwt-simple": "^0.5.0",
+    "moment": "^2.13.0",
+    "querystring": "^0.2.0",
+    "request-promise": "^3.0.0"
+  }
+}
