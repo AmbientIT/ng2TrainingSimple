@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
-    "prebuild": "",
+    "prebuild": "rimraf dist",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached"
   },
   "author": "Chazz <charles.jacquin@autistici.org>",
@@ -31,6 +31,7 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.21.0",
     "raw-loader": "0.5.1",
+    "rimraf": "^2.5.2",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.4",
