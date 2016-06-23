@@ -6,9 +6,7 @@ const jsonServer = require('json-server')
 const bodyParser = require('body-parser')
 
 const server = jsonServer.create()
-server.use(jsonServer.defaults({
-  logger: false
-}))
+server.use(jsonServer.defaults())
 server.use(bodyParser.json())
 glob('./modules/**/index.js')
   .then(modules => {
@@ -26,6 +24,6 @@ glob('./modules/**/index.js')
         }, {})
       )
     )
-    server.listen(3001, () => console.log('web-service listening on port 3000'))
+    server.listen(3001, () => console.log('web-service listening on port 3001'))
   })
   .catch(err => console.log(err));

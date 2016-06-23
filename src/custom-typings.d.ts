@@ -57,7 +57,6 @@ interface ErrorStackTraceLimit {
 }
 
 
-
 // Extend typings
 interface NodeRequire extends WebpackRequire {}
 interface ErrorConstructor extends ErrorStackTraceLimit {}

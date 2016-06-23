@@ -1,0 +1,13 @@
+<nav>
+  <a [routerLink]="['/']">
+    Home
+  </a>
+  <a [routerLink]="['/todo/list']">
+    Todo list
+  </a>
+  <form [formGroup]="languagesForm" style="display: inline-block">
+    <select formControlName="locale">
+      <option *ngFor="let language of languages" value="{{language.value}}">{{language.label | translate}}</option>
+    </select>
+  </form>
+</nav>

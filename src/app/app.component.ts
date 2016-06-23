@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TodoList} from './todo-list/todo-list.component';
-import {ITodo} from './shared/model/todo';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+import {NavbarComponent} from './navbar/navbar.component';
+import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
+
 /*
  * App Component
  * Top Level Component
@@ -11,28 +13,24 @@ import {ITodo} from './shared/model/todo';
     require('./app.css')
   ],
   template: require('./app.html'),
-  directives: [TodoList]
+  directives: [
+    NavbarComponent,
+    ROUTER_DIRECTIVES
+  ]
 })
 export class App implements OnInit{
-  url: string = 'https://www.ambient-it.net/';
-  todos: ITodo[] = [
-    {
-      title: 'apprendre angular2',
-      description: 'ceci est une description',
-      done: false,
-      dueTo: new Date()
-    },
-    {
-      title: 'apprendre angular3',
-      description: 'plus tard',
-      done: false,
-      dueTo: new Date()
-    }
-  ]
-  constructor() {}
+  param: string = 'World';
+  constructor(translate: TranslateService) {
+    let userLang = navigator.language.split('-')[0]; // use navigator lang if available
+    userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
 
+     // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+     // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use(userLang);
+  }
   ngOnInit() {
     console.log('App started');
   }
-
 }

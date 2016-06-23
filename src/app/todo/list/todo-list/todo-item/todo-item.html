@@ -1,0 +1,8 @@
+<div>
+  <a [routerLink]="['/todo/detail', todo.id]" [ngClass]="{'todo-done': todo.done}">{{ todo.title }}</a>
+  <button (click)="updateTodo()">
+    <span [hidden]="todo.done">Done</span>
+    <span [hidden]="!todo.done">Undo</span>
+  </button>
+  <button (click)="removeTodo()">X</button>
+</div>

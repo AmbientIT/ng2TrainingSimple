@@ -20,4 +20,5 @@ import '@angular/http';
 import '@angular/router-deprecated';
 
 // RxJS
+// import 'rxjs/add/operator/map'
 import 'rxjs/Rx'

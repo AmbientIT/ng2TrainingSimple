@@ -1,0 +1,8 @@
+{
+  "APP_TITLE": "My super app",
+  "TODOS_TITLE": "Your todo list",
+  "HELLO": "Hello {{value}}",
+  "TODO_DETAIL_TITLE": "Detail page for your todo",
+  "ENGLISH": "english",
+  "FRENCH": "french"
+}

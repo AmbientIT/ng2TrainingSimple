@@ -1,0 +1,6 @@
+<h1>{{'TODO_DETAIL_TITLE' | translate}}</h1>
+<h2 [ngClass]="{'todo-done': todo?.done, 'todo-undone': !todo?.done}">
+  {{todo?.title}}
+</h2>
+<p>{{todo?.description}}</p>
+<small>{{todo?.dueTo | date}}</small>

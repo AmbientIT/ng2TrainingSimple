@@ -23,7 +23,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules'],
+    alias: {
+      app: `${__dirname}/src/app`,
+      todo: `${__dirname}/src/app/todo`
+    }
   },
   module: {
 
@@ -41,8 +45,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader',
-        exclude: [/\.(spec|e2e)\.ts$/]
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.json$/,
@@ -62,7 +65,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: 'src/assets',
-      to: 'assets'
+      to: ''
     }]),
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'src/index.html'),
