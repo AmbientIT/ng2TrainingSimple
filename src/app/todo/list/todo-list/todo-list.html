@@ -1,7 +1,0 @@
-<input type="checkbox" [(ngModel)]="isDone"> Filter todo
-<todo-item
-  *ngFor="let todo of todos | async | tododone : [isDone]"
-  [todo]="todo"
-  (onTodoUpdate)="todoUpdateHandler($event)"
-  (onTodoRemove)="todoRemoveHandler($event)">
-</todo-item>
