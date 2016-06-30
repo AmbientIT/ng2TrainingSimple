@@ -1,0 +1,6 @@
+<div>
+  <a>{{todo.title}}</a>
+  <time>{{todo.dueDate | date:'dd/MM/yyyy'}}</time>
+  <button (click)="update()">done</button>
+  <button (click)="remove()">X</button>
+</div>
