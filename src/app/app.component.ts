@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ITodo} from './todo/shared/todo.model';
+import {TranslateService} from 'ng2-translate';
 
 
 /*
@@ -13,19 +14,15 @@ import {ITodo} from './todo/shared/todo.model';
   ],
   template: require('./app.html')
 })
-export class App {
-  todos: ITodo[] = [
-    {
-      title: 'learn Angular2',
-      description: 'ez',
-      isDone: false,
-      dueDate: new Date()
-    },
-    {
-      title: 'aller au ski',
-      description: 'harde',
-      isDone: false,
-      dueDate: new Date()
-    }
-  ]
+export class App implements OnInit{
+  constructor(
+    private translate: TranslateService
+  ) {}
+
+  ngOnInit() {
+    let userLang = navigator.language.split('-')[0]; // use navigator lang if available
+    userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
+    this.translate.setDefaultLang('en');
+    this.translate.use(userLang);
+  }
 }

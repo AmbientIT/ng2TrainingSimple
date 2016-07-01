@@ -1,5 +1,5 @@
 <div>
-  <a>{{todo.title}}</a>
+  <a [routerLink]="['/todo/detail', todo.id]"[ngClass]="{'todo-isdone': todo.isDone}">{{todo.title}}</a>
   <time>{{todo.dueDate | date:'dd/MM/yyyy'}}</time>
   <button (click)="update()">done</button>
   <button (click)="remove()">X</button>
