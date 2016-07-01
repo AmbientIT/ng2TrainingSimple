@@ -1,3 +1,4 @@
 <div>
-  <todo-item *ngFor="let todo of todos | filterbytitle:'aller' " [todo]="todo"></todo-item>
+  <input type="text" [(ngModel)]="query">
+  <todo-item *ngFor="let todo of todos | filterbytitle:query " [todo]="todo"></todo-item>
 </div>

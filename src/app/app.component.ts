@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-// import {TodoItem} from './todo/todo-item/todo-item.component';
-import {TodoList} from './todo/todo-list/todo-list.component';
 import {ITodo} from './todo/shared/todo.model';
 
 
@@ -13,10 +11,7 @@ import {ITodo} from './todo/shared/todo.model';
   styles: [
     require('./app.css')
   ],
-  template: require('./app.html'),
-  directives: [
-    TodoList
-  ]
+  template: require('./app.html')
 })
 export class App {
   todos: ITodo[] = [

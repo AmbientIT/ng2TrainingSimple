@@ -1,0 +1,14 @@
+.todo-view-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-view-menu {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet {
+  align-self: stretch;
+}
