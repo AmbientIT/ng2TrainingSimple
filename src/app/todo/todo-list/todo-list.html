@@ -1,9 +1,0 @@
-<div>
-  <input type="text" [(ngModel)]="query">
-  <todo-item
-    *ngFor="let todo of todos | filterbytitle:query "
-    [todo]="todo"
-    (onTodoUpdate)="todoUpdateHandler($event)"
-    (onTodoRemove)="todoRemoveHandler($event)">
-  </todo-item>
-</div>
