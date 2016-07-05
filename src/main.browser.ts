@@ -1,7 +1,7 @@
 import {provide, PLATFORM_PIPES, PLATFORM_DIRECTIVES} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {App} from './app/app.component';
-
 import {TodoTitlePipe} from './app/todo/shared/todo-title.pipe';
 import {TodoItem} from './app/todo/todo-item/todo-item.component';
 import {TodoList} from './app/todo/todo-list/todo-list.component';
@@ -14,7 +14,8 @@ const APP_PIPES = [
 
 const APP_DIRECTIVES = [
   TodoItem,
-  TodoList
+  TodoList,
+  ROUTER_DIRECTIVES
 ]
 
 //enableProdMode()  remove ELEMENT_PROBE_PROVIDERS from the array in bootstrap call
