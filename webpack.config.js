@@ -23,11 +23,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],
-    modulesDirectories: ['node_modules'],
-    alias: {
-      app: `${__dirname}/src/app`,
-      todo: `${__dirname}/src/app/todo`
-    }
+    modulesDirectories: ['node_modules']
   },
   module: {
 

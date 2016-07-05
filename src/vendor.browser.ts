@@ -24,5 +24,3 @@ import '@angular/common';
 import '@angular/http';
 import '@angular/router';
 import '@angular/forms';
-
-import 'ng2-translate';

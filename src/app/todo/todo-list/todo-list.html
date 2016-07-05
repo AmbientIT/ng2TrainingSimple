@@ -1,0 +1,9 @@
+<div>
+  <input type="text" placeholder="filter by title" [(ngModel)]="titleFilter">
+  <todo-item
+    *ngFor="let todo of todos | filtertitle : titleFilter"
+    [todo]="todo"
+    (onTodoUpdate)="todoUpdateHandler($event)"
+    (onTodoRemove)="todoUpdateHandler($event)">
+  </todo-item>
+</div>
