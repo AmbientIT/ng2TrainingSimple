@@ -1,10 +1,14 @@
 {
   "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160317120654",
-    "uglify-js": "registry:dt/uglify-js#2.6.1+20160316155526",
-    "hammerjs": "registry:dt/hammerjs#2.0.4+20160417130828",
-    "node": "registry:dt/node#6.0.0+20160514165920",
+    "angular-protractor": "github:DefinitelyTyped/DefinitelyTyped/angular-protractor/angular-protractor.d.ts#17fa1e5f269189f7f8e0f53f8c443e6c2eac562c",
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#bc92442c075929849ec41d28ab618892ba493504",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#aee0039a2d6686ec78352125010ebb38a7a7d743",
+    "selenium-webdriver": "github:DefinitelyTyped/DefinitelyTyped/selenium-webdriver/selenium-webdriver.d.ts#a83677ed13add14c2ab06c7325d182d0ba2784ea",
     "source-map": "registry:dt/source-map#0.0.0+20160317120654",
-    "webpack": "registry:dt/webpack#1.12.9+20160321060707"
+    "uglify-js": "registry:dt/uglify-js#2.6.1+20160316155526"
+  },
+  "dependencies": {
+    "webpack": "registry:npm/webpack#1.12.9+20160418172948"
   }
 }

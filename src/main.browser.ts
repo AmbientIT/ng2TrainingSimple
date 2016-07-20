@@ -1,25 +1,23 @@
-import {provide, PLATFORM_PIPES, PLATFORM_DIRECTIVES} from '@angular/core';
+import {enableProdMode, provide, PLATFORM_PIPES, PLATFORM_DIRECTIVES} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 import {App} from './app/app.component';
-import {TodoTitlePipe} from './app/todo/shared/todo-title.pipe';
-import {TodoItem} from './app/todo/todo-item/todo-item.component';
-import {TodoList} from './app/todo/todo-list/todo-list.component';
 
-const APP_PROVIDERS = []
+const APP_PROVIDERS = [
+
+]
 
 const APP_PIPES = [
-  TodoTitlePipe
+
 ]
 
 const APP_DIRECTIVES = [
-  TodoItem,
-  TodoList,
-  ROUTER_DIRECTIVES
+
 ]
 
-//enableProdMode()  remove ELEMENT_PROBE_PROVIDERS from the array in bootstrap call
+WEBPACK_ENV === 'production' ? enableProdMode() : require('zone.js/dist/long-stack-trace-zone');
+
 bootstrap(App, [
+  APP_PROVIDERS,
   provide(PLATFORM_PIPES, {
     multi: true,
     useValue: APP_PIPES

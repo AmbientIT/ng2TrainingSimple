@@ -1,17 +1,13 @@
 'use strict';
 
 const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
-/**
- * Webpack configuration
- *
- * See: http://webpack.github.io/docs/configuration.html#cli
- */
-module.exports = {
-  debug: true,
-  devtool: 'cheap-module-source-map',
+const args = require('yargs').argv
+
+module.exports = webpackMerge(require(`./webpack/${args.env}`), {
   entry: {
     vendor: './src/vendor.browser',
     main: './src/main.browser'
@@ -22,26 +18,14 @@ module.exports = {
     sourceMapFilename: '[name].map'
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.json'],
+    extensions: ['', '.ts', '.js', '.es6', '.json'],
     modulesDirectories: ['node_modules']
   },
   module: {
-
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'source-map-loader',
-        exclude: [
-          // these packages have problems with their sourcemaps
-          'node_modules/rxjs',
-          'node_modules/@angular'
-        ]
-      }
-    ],
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'ts-loader'
       },
       {
         test: /\.json$/,
@@ -55,30 +39,32 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw-loader',
         exclude: ['src/index.html']
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/i,
+        loader: 'file?name=dist/images/[name].[ext]'
+      },
+      {
+        test: /\.woff2?$/,
+        loader: 'url?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff'
+       },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        loader: 'file?name=dist/fonts/[name].[ext]'
       }
     ]
   },
   plugins: [
     new CopyWebpackPlugin([{
       from: 'src/assets',
-      to: ''
+      to: 'assets'
     }]),
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'src/index.html'),
       inject: 'body'
     }),
-  ],
-  devServer: {
-    port: 3000,
-    host: 'localhost',
-    historyApiFallback: true
-  },
-  node: {
-    global: 'window',
-    crypto: 'empty',
-    process: true,
-    module: false,
-    clearImmediate: false,
-    setImmediate: false
-  }
-}
+    new webpack.DefinePlugin({
+      'WEBPACK_ENV': `"${args.env}"`
+    })
+  ]
+})
